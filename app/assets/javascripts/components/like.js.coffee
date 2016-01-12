@@ -2,19 +2,17 @@
   getInitialState: ->
     likes: 0
 
-  componentDidMount: ->
+  componentWillMount: ->
     $.get @props.source, ((results) ->
       count = results.length
       if @isMounted
         @setState
           likes: count
       ).bind(@)
-    console.log @state
 
   handleLike: (e) ->
-    console.log e
-    console.log @props
-    console.log @state.likes
+    @setState
+      likes: @state.likes + 1
     $.ajax
       method: 'POST'
       url: "/blurts/#{@props.id}/like_blurt"

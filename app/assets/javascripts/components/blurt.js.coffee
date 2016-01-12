@@ -12,10 +12,10 @@ FormattedRelative = ReactIntl.FormattedRelative;
       method: 'DELETE'
       url: "/blurts/#{ @props.blurt.id }"
       dataType: 'JSON'
-      success: () =>
-        @props.handleDeleteBlurt @props.blurt
-  addLike: ->
-    @forceUpdate <Like {...@props.blurt} source={"/blurts/#{@props.blurt.id}/likes"} handleLike={@addLike}/>
+      error: =>
+        @setState
+          likes: @state.likes - 1
+
 
   render: ->
     <div className="event" >
