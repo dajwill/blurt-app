@@ -17,7 +17,7 @@
       method: 'POST'
       url: "/blurts/#{@props.id}/like_blurt"
       data_type: 'JSON'
-      success: () =>
+      succeess: () =>
         @props.addLike
 
   render: ->
