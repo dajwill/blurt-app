@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'blurts#index'
   resources :blurt_likes
   resources :blurts do
     member do
