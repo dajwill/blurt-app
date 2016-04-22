@@ -13,13 +13,16 @@
 
 ActiveRecord::Schema.define(version: 20160111162016) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "blurt_likes", force: :cascade do |t|
     t.integer  "blurt_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "blurt_likes", ["blurt_id"], name: "index_blurt_likes_on_blurt_id"
+  add_index "blurt_likes", ["blurt_id"], name: "index_blurt_likes_on_blurt_id", using: :btree
 
   create_table "blurts", force: :cascade do |t|
     t.text     "message"
@@ -27,4 +30,5 @@ ActiveRecord::Schema.define(version: 20160111162016) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "blurt_likes", "blurts"
 end

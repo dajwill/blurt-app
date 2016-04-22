@@ -1,2 +1,12 @@
-.ui.container
-  = react_component 'Blurts', {data: @blurts}
+.ui.sidebar.inverted.vertical.menu
+  .item General
+.pusher
+  .ui.container
+    %i.large.sidebar.icon
+    = react_component 'Blurts', {data: @blurts}
+
+:coffeescript
+  $ ->
+    $('.sidebar.icon').click ->
+      $('.ui.sidebar')
+        .sidebar('toggle')
