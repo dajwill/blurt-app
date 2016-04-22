@@ -5,7 +5,7 @@ FormattedRelative = ReactIntl.FormattedRelative;
   mixins: [IntlMixin]
 
   getInitialState: ->
-    blurt: @props.blurt
+    blurt: @props
   handleDelete: (e) ->
     e.preventDefault()
     $.ajax
@@ -15,7 +15,8 @@ FormattedRelative = ReactIntl.FormattedRelative;
       error: =>
         @setState
           likes: @state.likes - 1
-
+      success: () =>
+        @props.handleDeleteBlurt @props
 
   render: ->
     <div className="event" >
