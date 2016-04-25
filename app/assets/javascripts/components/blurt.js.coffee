@@ -5,7 +5,7 @@ FormattedRelative = ReactIntl.FormattedRelative;
   mixins: [IntlMixin]
 
   getInitialState: ->
-    blurt: @props
+    blurt: @props.blurt
   handleDelete: (e) ->
     e.preventDefault()
     $.ajax
